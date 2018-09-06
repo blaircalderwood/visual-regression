@@ -1,0 +1,32 @@
+{
+    "name": "visual-regression",
+    "version": "1.0.0",
+    "description": "A script used to automate visual regression testing",
+    "main": "visualRegression.js",
+    "scripts": {
+        "start": "http-server ./src -p 3000",
+        "test:e2e": "cypress run",
+        "test:vr": "node ./scripts/visualRegression.js",
+        "test:vr-init": "cp -rf ./screenshots/challenger/ ./screenshots/champion/",
+        "test:vr-approve": "cp -rf ./screenshots/challenger/ ./screenshots/champion/",
+        "test": "npm run test:e2e && npm run test:vr"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/blaircalderwood/visual-regression.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/blaircalderwood/visual-regression/issues"
+    },
+    "homepage": "https://github.com/blaircalderwood/visual-regression#readme",
+    "devDependencies": {
+        "blink-diff": "^1.0.13",
+        "cypress": "^3.0.2",
+        "rimraf": "^2.6.2"
+    },
+    "dependencies": {
+        "http-server": "^0.11.1"
+    }
+}
